@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F1A15305-1DE1-4E13-93E5-272AE205B0C0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>pointofsale</RootNamespace>
+    <AssemblyName>pointofsale</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zen.Barcode.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zen.Barcode.Rendering.Framework.3.1.10729.1\lib\Zen.Barcode.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="zxing, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net40\zxing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net40\zxing.presentation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controlform\Barang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\Barang.Designer.cs">
+      <DependentUpon>Barang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\BarcodeScanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\BarcodeScanner.Designer.cs">
+      <DependentUpon>BarcodeScanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\Feedback.Designer.cs">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\FormBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\FormBarang.Designer.cs">
+      <DependentUpon>FormBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\FormCetakBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\FormCetakBarcode.Designer.cs">
+      <DependentUpon>FormCetakBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\FormSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\FormSupplier.Designer.cs">
+      <DependentUpon>FormSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\FormUbahPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\FormUbahPassword.Designer.cs">
+      <DependentUpon>FormUbahPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\Supplier.Designer.cs">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_BuatAkun.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_BuatAkun.Designer.cs">
+      <DependentUpon>UC_BuatAkun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\Diskon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\Diskon.Designer.cs">
+      <DependentUpon>Diskon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\FormKembalian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\FormKembalian.Designer.cs">
+      <DependentUpon>FormKembalian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\FormProduk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\FormProduk.Designer.cs">
+      <DependentUpon>FormProduk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\Pegawai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\Pegawai.Designer.cs">
+      <DependentUpon>Pegawai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\Produk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlform\Produk.Designer.cs">
+      <DependentUpon>Produk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_DialogBarang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_DialogBarang.Designer.cs">
+      <DependentUpon>UC_DialogBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_FormBarang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_FormBarang.Designer.cs">
+      <DependentUpon>UC_FormBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_FormKeuangan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_FormKeuangan.Designer.cs">
+      <DependentUpon>UC_FormKeuangan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_FormPegawai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_FormPegawai.Designer.cs">
+      <DependentUpon>UC_FormPegawai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_FormProduk.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_FormProduk.Designer.cs">
+      <DependentUpon>UC_FormProduk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_FormProfil.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_FormProfil.Designer.cs">
+      <DependentUpon>UC_FormProfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_FormSupplier.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_FormSupplier.Designer.cs">
+      <DependentUpon>UC_FormSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_FormTransaksiPembelian.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_FormTransaksiPembelian.Designer.cs">
+      <DependentUpon>UC_FormTransaksiPembelian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_FormTransaksiPenjualan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_FormTransaksiPenjualan.Designer.cs">
+      <DependentUpon>UC_FormTransaksiPenjualan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_Iklan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_Iklan.Designer.cs">
+      <DependentUpon>UC_Iklan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_login.Designer.cs">
+      <DependentUpon>UC_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlform\UC_Voucher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controlform\UC_Voucher.Designer.cs">
+      <DependentUpon>UC_Voucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DasboardAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DasboardAdmin.Designer.cs">
+      <DependentUpon>DasboardAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DasboardManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DasboardManager.Designer.cs">
+      <DependentUpon>DasboardManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DasboardUtama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DasboardUtama.Designer.cs">
+      <DependentUpon>DasboardUtama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DasboardPeg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DasboardPeg.Designer.cs">
+      <DependentUpon>DasboardPeg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kelas\Koneksi.cs" />
+    <Compile Include="kelas\Login.cs" />
+    <Compile Include="laporan\LaporanBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="laporan\LaporanBarang.Designer.cs">
+      <DependentUpon>LaporanBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="laporan\LaporanBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="laporan\LaporanBarcode.Designer.cs">
+      <DependentUpon>LaporanBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="laporan\LaporanFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="laporan\LaporanFeedback.Designer.cs">
+      <DependentUpon>LaporanFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="laporan\LaporanKeuangan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="laporan\LaporanKeuangan.Designer.cs">
+      <DependentUpon>LaporanKeuangan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="laporan\LaporanTransaksiPembelian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="laporan\LaporanTransaksiPembelian.Designer.cs">
+      <DependentUpon>LaporanTransaksiPembelian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="laporan\LaporanTransaksiPenjualan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="laporan\LaporanTransaksiPenjualan.Designer.cs">
+      <DependentUpon>LaporanTransaksiPenjualan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="laporan\LaporanVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="laporan\LaporanVoucher.Designer.cs">
+      <DependentUpon>LaporanVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="laporan\report_barang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_barang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="laporan\report_barcode.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_barcode.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="laporan\report_feedback.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_feedback.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="laporan\report_keuangan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_keuangan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="laporan\report_transaksipembelian.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_transaksipembelian.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="laporan\report_transaksipenjualan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_transaksipenjualan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="laporan\report_voucher.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>report_voucher.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="controlform\Barang.resx">
+      <DependentUpon>Barang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\BarcodeScanner.resx">
+      <DependentUpon>BarcodeScanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\Diskon.resx">
+      <DependentUpon>Diskon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\Feedback.resx">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\FormBarang.resx">
+      <DependentUpon>FormBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\FormCetakBarcode.resx">
+      <DependentUpon>FormCetakBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\FormKembalian.resx">
+      <DependentUpon>FormKembalian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\FormProduk.resx">
+      <DependentUpon>FormProduk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\FormSupplier.resx">
+      <DependentUpon>FormSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\FormUbahPassword.resx">
+      <DependentUpon>FormUbahPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\Pegawai.resx">
+      <DependentUpon>Pegawai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\Produk.resx">
+      <DependentUpon>Produk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\Supplier.resx">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_BuatAkun.resx">
+      <DependentUpon>UC_BuatAkun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_DialogBarang.resx">
+      <DependentUpon>UC_DialogBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_FormBarang.resx">
+      <DependentUpon>UC_FormBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_FormKeuangan.resx">
+      <DependentUpon>UC_FormKeuangan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_FormPegawai.resx">
+      <DependentUpon>UC_FormPegawai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_FormProduk.resx">
+      <DependentUpon>UC_FormProduk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_FormProfil.resx">
+      <DependentUpon>UC_FormProfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_FormSupplier.resx">
+      <DependentUpon>UC_FormSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_FormTransaksiPembelian.resx">
+      <DependentUpon>UC_FormTransaksiPembelian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_FormTransaksiPenjualan.resx">
+      <DependentUpon>UC_FormTransaksiPenjualan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_Iklan.resx">
+      <DependentUpon>UC_Iklan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_login.resx">
+      <DependentUpon>UC_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlform\UC_Voucher.resx">
+      <DependentUpon>UC_Voucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DasboardAdmin.resx">
+      <DependentUpon>DasboardAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DasboardManager.resx">
+      <DependentUpon>DasboardManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DasboardPeg.resx">
+      <DependentUpon>DasboardPeg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DasboardUtama.resx">
+      <DependentUpon>DasboardUtama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\LaporanBarang.resx">
+      <DependentUpon>LaporanBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\LaporanBarcode.resx">
+      <DependentUpon>LaporanBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\LaporanFeedback.resx">
+      <DependentUpon>LaporanFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\LaporanKeuangan.resx">
+      <DependentUpon>LaporanKeuangan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\LaporanTransaksiPembelian.resx">
+      <DependentUpon>LaporanTransaksiPembelian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\LaporanTransaksiPenjualan.resx">
+      <DependentUpon>LaporanTransaksiPenjualan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\LaporanVoucher.resx">
+      <DependentUpon>LaporanVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\report_barang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_barang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\report_barcode.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_barcode.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\report_feedback.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_feedback.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\report_keuangan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_keuangan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\report_transaksipembelian.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_transaksipembelian.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\report_transaksipenjualan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_transaksipenjualan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="laporan\report_voucher.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>report_voucher.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
